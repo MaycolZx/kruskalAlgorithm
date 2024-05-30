@@ -21,8 +21,7 @@ vector<vector<char>> kruskalF(vector<node *> nGeneral, int nodoInit) {
   vector<node *> listN = {startN};
   int ci = 0;
   int cj = 0;
-  int contador = 0;
-  while (contador < 6) {
+  while (true) {
     vector<char> resultStep = {};
     distMin = 100;
     for (int j = 0; j < listN.size(); j++) {
@@ -42,7 +41,9 @@ vector<vector<char>> kruskalF(vector<node *> nGeneral, int nodoInit) {
     resultStep.push_back(listN[cj]->name);
     resultStep.push_back(nodoSec->name);
     Rt.push_back(resultStep);
-    contador++;
+    if (listN.size() == nGeneral.size()) {
+      break;
+    }
   }
   return Rt;
 }
